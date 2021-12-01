@@ -1,0 +1,25 @@
+data_dir: gs://justhungryman/tfds
+type: tensorflow_dataset
+batch_size: ???
+train:
+  name: cifar10:3.0.2
+  split: "train"  # 49k
+  drop_remainder: True
+
+  repeat: True
+  shuffle: True
+  batch_size: ???
+  
+  preprocess: ???
+  postprocess: ???
+  
+test:
+  name: cifar10:3.0.2
+  split: "test"
+  drop_remainder: False
+
+  batch_size: ???
+
+  preprocess: ???
+  postprocess: ???
+  

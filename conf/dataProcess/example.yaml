@@ -1,0 +1,25 @@
+train:
+  preprocess:
+      - type: random_flip
+      - type: cast
+        params:
+          type: bfloat16
+      - type: normalize
+        params:
+          mean: 0.5
+          std: 0.5
+  postprocess:
+    - type: mixing
+      params:
+        mixup_alpha: 0.5
+        cutmix_alpha: 0.
+test:
+  preprocess:
+    - type: cast
+      params:
+        type: bfloat16
+    - type: normalize
+      params:
+        mean: 0.5
+        std: 0.5
+  postprocess:

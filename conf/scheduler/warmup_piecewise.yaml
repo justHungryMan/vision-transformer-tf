@@ -1,0 +1,8 @@
+type: warmup_piecewise
+steps: ???
+params:
+  init_lr: 0.0
+  warmup_step: ???
+  boundaries: ???
+  values: ???  
+  

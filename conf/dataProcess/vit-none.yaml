@@ -1,0 +1,35 @@
+train:
+  preprocess:
+    - type: vit_inception_crop
+      params:
+        size: 224
+    - type: random_flip
+    # - type: cast
+    #   params:
+    #     type: float32
+    - type: sigmoid_label_smoothing
+      params:
+        epsilon: 0.0001
+    - type: normalize
+      params:
+        mean: 127.5
+        std: 127.5
+  postprocess:
+
+test:
+  preprocess:
+    - type: resize_smaller_aspect_ratio
+      params:
+        size: 256
+        method: bicubic
+    - type: inception_center_crop
+      params:
+        size: 224
+    # - type: cast
+    #   params:
+    #     type: float32
+    - type: normalize
+      params:
+        mean: 127.5
+        std: 127.5
+  postprocess:

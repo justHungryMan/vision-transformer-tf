@@ -1,0 +1,14 @@
+tensorflow-gpu==2.7.0
+tensorflow-probability
+tensorflow-datasets
+tensorflow-addons
+
+wandb
+hydra-core
+hydra_colorlog
+hydra-optuna-sweeper
+omegaconf
+cloud-tpu-client
+
+black
+rich

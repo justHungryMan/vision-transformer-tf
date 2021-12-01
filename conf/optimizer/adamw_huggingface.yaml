@@ -1,0 +1,9 @@
+type: adamw_huggingface
+params:
+  weight_decay_rate: 0.3
+  beta_1: 0.9
+  beta_2: 0.999
+  include_in_weight_decay: []
+  exclude_from_weight_decay: []
+    # 'pos_emb', 'class_emb']
+  global_clipnorm: 1.

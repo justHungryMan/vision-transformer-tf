@@ -1,0 +1,7 @@
+type: vit/b-16
+params:
+  image_size: 224
+  channels: 3
+  drop_rate: 0.1
+  attn_drop_rate: 0.0
+  drop_path_rate: 0.1

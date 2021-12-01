@@ -1,0 +1,23 @@
+train:
+  preprocess:
+    - type: vit_inception_crop
+      params:
+        size: 384
+    - type: random_flip
+    - type: normalize
+      params:
+        mean: 127.5
+        std: 127.5
+  postprocess:
+
+test:
+  preprocess:
+    - type: resize
+      params:
+        size: [384, 384]
+        method: bicubic
+    - type: normalize
+      params:
+        mean: 127.5
+        std: 127.5
+  postprocess:

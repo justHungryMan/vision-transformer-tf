@@ -1,0 +1,31 @@
+# @package _global_
+
+# to execute this experiment run:
+# python run.py experiment=example.yaml
+
+defaults:
+  - override /architecture: resnet50.yaml
+  - override /dataset: cifar10.yaml
+  - override /dataProcess: example.yaml
+  - override /loss: bce.yaml
+  - override /optimizer: sgd.yaml
+  - override /scheduler: warmup_piecewise.yaml
+  - override /callbacks: base.yaml
+
+# all parameters below will be merged with parameters from default configurations set above
+# this allows you to overwrite only specified parameters
+
+dataset:
+    batch_size: 1024
+    train:
+        batch_size: ${dataset.batch_size}
+    test:
+        batch_size: ${dataset.batch_size}
+scheduler:
+    # cifar10 num_exaples: 50_000
+    # (50_000 // 32) * 90 epochs
+    steps: 4_320
+    params:
+        warmup_step: 1_200
+        boundaries: [1_440, 2_880, 3_840]
+        values: ???

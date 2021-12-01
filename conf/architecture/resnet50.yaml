@@ -1,0 +1,5 @@
+type: resnet/50
+params:
+  include_top: False
+  pooling: 'avg'
+  weights: 'imagenet'

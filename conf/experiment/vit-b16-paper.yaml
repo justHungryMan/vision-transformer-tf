@@ -1,0 +1,33 @@
+# @package _global_
+
+# to execute this experiment run:
+# python run.py experiment=example.yaml
+
+defaults:
+  - override /architecture: vit-b16-do_0.1-attdo_0.0-dp_0.0-rs_768
+  - override /dataset: imagenet1k.yaml
+  - override /dataProcess: vit-none.yaml
+  - override /loss: bce.yaml
+  - override /optimizer: adamw_huggingface.yaml
+  - override /scheduler: warmup_cosine.yaml
+  - override /callbacks: upstream.yaml
+
+# all parameters below will be merged with parameters from default configurations set above
+# this allows you to overwrite only specified parameters
+
+dataset:
+    batch_size: 4096
+    train:
+        batch_size: ${dataset.batch_size}
+        postprocess: 
+    test:
+        batch_size: ${dataset.batch_size}
+        postprocess:
+scheduler:
+    # imagenet1k num_exaples: 1_281_167
+    # (1_281_167 // 4096) (312) * 300 epochs
+    steps: 93_600
+    params:
+        warmup_step: 10_000
+        initial_learning_rate: 0.003
+        decay_steps: ${scheduler.steps}

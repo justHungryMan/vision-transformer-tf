@@ -1,0 +1,38 @@
+defaults:
+  - _self_
+  - architecture: resnet50.yaml
+  - dataset: cifar10.yaml
+  - dataProcess: example.yaml
+  - loss: bce.yaml
+  - optimizer: sgd.yaml
+  - scheduler: warmup_piecewise.yaml
+  - callbacks: base.yaml
+
+  - experiment: null
+  - hparams_search: null
+  
+  - hydra: defaults.yaml
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+
+
+base:
+  project_name: VisionTransformer
+  mode: train_eval
+  # TPU options
+  env:
+    mode: tpu
+    gcp_project: {your_project}
+    tpu_name: node-1
+    tpu_zone: europe-west4-a
+    mixed_precision: True
+  # GPU options
+  # env:
+  #   mode: gpu
+  #   mixed_precision: True
+  seed: '0xC0FFEE'
+  save_dir: gs://{gcs_bucket}/${base.project_name}
+  debug: True
+  resume: False
+  print_config: True
+  ignore_warning: True

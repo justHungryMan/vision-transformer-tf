@@ -1,0 +1,7 @@
+type: warmup_cosine
+steps: ???
+params:
+  init_lr: 0.0
+  warmup_step: ???
+  initial_learning_rate: ???
+  decay_steps: ???  

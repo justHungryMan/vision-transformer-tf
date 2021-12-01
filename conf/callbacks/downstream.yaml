@@ -1,0 +1,21 @@
+modules:
+  - type: MonitorCallback
+  - type: TerminateOnNaN
+  - type: ProgbarLogger
+    params:
+      count_mode: steps
+  - type: ModelCheckpoint
+    params:
+      filepath: ???
+      save_weights_only: True
+  - type: Wandb
+    project: vit-downstream
+    nested_dict: False
+    hide_config: True
+    params: 
+      monitor: val_loss
+      save_model: False
+  # - type: TensorBoard
+  #   params:
+  #     log_dir: ???
+  #     histogram_freq: 1
