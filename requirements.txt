@@ -3,6 +3,8 @@ tensorflow-probability
 tensorflow-datasets
 tensorflow-addons
 
+numpy
+scipy
 wandb
 hydra-core
 hydra_colorlog
