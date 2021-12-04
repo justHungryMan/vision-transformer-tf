@@ -14,7 +14,7 @@ test:
   preprocess:
     - type: resize
       params:
-        size: [384, 384]
+        size: [224, 224]
         method: bicubic
     - type: normalize
       params:

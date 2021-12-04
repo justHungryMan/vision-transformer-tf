@@ -6,7 +6,7 @@
 defaults:
   - override /architecture: vit-b16-do_0.1-attdo_0.0-dp_0.1-rs_0
   - override /dataset: imagenet1k.yaml
-  - override /dataProcess: vit-light0.yaml
+  - override /dataProcess: vit-strong1.yaml
   - override /loss: bce.yaml
   - override /optimizer: adamw_huggingface.yaml
   - override /scheduler: warmup_cosine.yaml
@@ -34,7 +34,7 @@ scheduler:
     steps: 375_300
     params:
         warmup_step: 40_000
-        initial_learning_rate: 2.5e-4
+        initial_learning_rate: 1e-3
         decay_steps: ${scheduler.steps}
 optimizer:
     params:

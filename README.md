@@ -10,11 +10,13 @@ This repository is for `An image is worth 16x16 words: Transformers for image re
 - Due to computational resource limitations, only reproduce using imagenet1k.
 
 All experimental results and graphs are opend in Wandb.
+- https://docs.google.com/spreadsheets/d/1j0lFlaMuqccFiHj3eQVpZYIbSoXY6Pz6oEW76x7g25M/edit?usp=sharing
 - https://wandb.ai/justhungryman/vit
+- In case of an experiment in which the tpu is stopped, it is resumed (duplicated experiment name but different start epoch).
 
 # Model weights
 
-This is personal project. Since it is difficult to open the model weights of all experiments, I only open the weights with the best performance for each model. But you can check the all results of experiment in `WIP`
+Since this is personal project, it is hard to train with large datasets like imagenet21k. For a pretrain model with good performance, see the [official repo](https://github.com/google-research/vision_transformer). But if you really need it, contact me.
 
 
 # Install dependencies
@@ -40,12 +42,12 @@ All experiments were done on tpu_v3-8 with the support of TRC. But you can exper
 
 # Train from scratch
 ```
-[WIP]
+python run.py experiment=vit-s16-aug_light1-bs_2048-wd_0.1-do_0.1-dp_0.1-lr_1e-3 base.project_name=vit-s16-aug_light1-bs_2048-wd_0.1-do_0.1-dp_0.1-lr_1e-3 base.save_dir={your_save_dir} base.env.gcp_project={your_gcp_project} base.env.tpu_name={your_tpu_name} base.debug=False
 ```
 
 # Downstream
 ```
-[WIP]
+python run.py --config-name=downstream experiment=downstream-imagenet-ti16_384 base.pretrained={your_checkpoint} base.project_name={your_project_name} base.save_dir={your_save_dir} base.env.gcp_project={your_gcp_project} base.env.tpu_name={your_tpu_name} base.debug=False
 ```
 
 # Board

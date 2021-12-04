@@ -1,0 +1,42 @@
+train:
+  preprocess:
+    - type: vit_inception_crop
+      params:
+        size: 224
+    - type: random_flip
+    - type: rand_augment
+      params:
+        num_layers: 2
+        magnitude: 20
+    # - type: cast
+    #   params:
+    #     type: bfloat16
+    - type: sigmoid_label_smoothing
+      params:
+        epsilon: 0.0001
+    - type: normalize
+      params:
+        mean: 127.5
+        std: 127.5
+  postprocess:
+    - type: mixing
+      params:
+        mixup_alpha: 0.8
+        cutmix_alpha: 0.0
+test:
+  preprocess:
+    - type: resize_smaller_aspect_ratio
+      params:
+        size: 256
+        method: bicubic
+    - type: inception_center_crop
+      params:
+        size: 224
+    # - type: cast
+    #   params:
+    #     type: bfloat16
+    - type: normalize
+      params:
+        mean: 127.5
+        std: 127.5
+  postprocess:
