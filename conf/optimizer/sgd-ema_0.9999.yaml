@@ -1,0 +1,5 @@
+type: sgd
+params:
+  momentum: 0.9
+  global_clipnorm: 1.
+ema_decay: 0.9999
