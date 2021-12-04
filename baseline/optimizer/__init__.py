@@ -32,4 +32,10 @@ def create(config, model=None):
 
     log.info(f"[optimizer] create {opt_type}")
 
+    if config["ema_decay"] is not False:
+        optimizer = tfa.optimizers.MovingAverage(
+            optimizer, average_decay=config["ema_decay"]
+        )
+        log.info(f"[optimizer] use average_decay: {config['ema_decay']}")
+
     return optimizer
