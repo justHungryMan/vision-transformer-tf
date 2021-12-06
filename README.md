@@ -11,7 +11,8 @@ This repository is for `An image is worth 16x16 words: Transformers for image re
 
 All experimental results and graphs are opend in Wandb.
 - https://docs.google.com/spreadsheets/d/1j0lFlaMuqccFiHj3eQVpZYIbSoXY6Pz6oEW76x7g25M/edit?usp=sharing
-- https://wandb.ai/justhungryman/vit
+- upstream: https://wandb.ai/justhungryman/vit
+- downstream: https://wandb.ai/justhungryman/vit-downstream/
 - In case of an experiment in which the tpu is stopped, it is resumed (duplicated experiment name but different start epoch).
 
 # Model weights
