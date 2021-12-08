@@ -17,7 +17,7 @@ All experimental results and graphs are opend in Wandb.
 
 # Model weights
 
-Since this is personal project, it is hard to train with large datasets like imagenet21k. For a pretrain model with good performance, see the [official repo](https://github.com/google-research/vision_transformer). But if you really need it, contact me.
+Since this is personal project, it is hard to train with large datasets like imagenet21k. For a pretrain model with good performance, see the [official repo](https://github.com/google-research/vision_transformer). But if you really need it, contact to me.
 
 
 # Install dependencies
