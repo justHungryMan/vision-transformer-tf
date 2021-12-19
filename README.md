@@ -17,7 +17,7 @@ All experimental results and graphs are opend in Wandb.
 
 # Model weights
 
-Since this is personal project, it is hard to train with large datasets like imagenet21k. For a pretrain model with good performance, see the [official repo](https://github.com/google-research/vision_transformer). But if you really need it, contact me.
+Since this is personal project, it is hard to train with large datasets like imagenet21k. For a pretrain model with good performance, see the [official repo](https://github.com/google-research/vision_transformer). But if you really need it, contact to me.
 
 
 # Install dependencies
@@ -42,13 +42,23 @@ All experiments were done on tpu_v3-8 with the support of TRC. But you can exper
 ```
 
 # Train from scratch
+
+
 ```
-python run.py experiment=vit-s16-aug_light1-bs_2048-wd_0.1-do_0.1-dp_0.1-lr_1e-3 base.project_name=vit-s16-aug_light1-bs_2048-wd_0.1-do_0.1-dp_0.1-lr_1e-3 base.save_dir={your_save_dir} base.env.gcp_project={your_gcp_project} base.env.tpu_name={your_tpu_name} base.debug=False
+# example
+python run.py experiment=vit-s16-aug_light1-bs_2048-wd_0.1-do_0.1-dp_0.1-lr_1e-3 \
+base.project_name=vit-s16-aug_light1-bs_2048-wd_0.1-do_0.1-dp_0.1-lr_1e-3 \
+base.save_dir={your_save_dir} base.env.gcp_project={your_gcp_project} \
+base.env.tpu_name={your_tpu_name} base.debug=False
 ```
 
 # Downstream
 ```
-python run.py --config-name=downstream experiment=downstream-imagenet-ti16_384 base.pretrained={your_checkpoint} base.project_name={your_project_name} base.save_dir={your_save_dir} base.env.gcp_project={your_gcp_project} base.env.tpu_name={your_tpu_name} base.debug=False
+# example
+python run.py --config-name=downstream experiment=downstream-imagenet-ti16_384 \
+base.pretrained={your_checkpoint} base.project_name={your_project_name} \
+base.save_dir={your_save_dir} base.env.gcp_project={your_gcp_project} \
+base.env.tpu_name={your_tpu_name} base.debug=False
 ```
 
 # Board
@@ -82,7 +92,7 @@ modules:
 
 # TFC
 
-This open source was assisted by TPU Research Cloud ([TRC](https://sites.research.google/trc/about/)) program  
+This open source was supported by TPU Research Cloud ([TRC](https://sites.research.google/trc/about/)) program  
 
 Thank you for providing the TPU.
 
